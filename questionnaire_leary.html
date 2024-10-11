@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questionnaire de Leary</title>
+</head>
+<body>
+    <h2>Questionnaire de Leary</h2>
+    <form id="learyForm">
+        <!-- Exemples de questions extraites -->
+        <div>
+            <p>1. <strong>A)</strong> Exerce pouvoir et influence <br>
+            <strong>B)</strong> Compréhensif et de bon conseil</p>
+            <input type="radio" name="q1" value="A"> A
+            <input type="radio" name="q1" value="B"> B
+        </div>
+
+        <div>
+            <p>2. <strong>A)</strong> Organise et structure les affaires <br>
+            <strong>B)</strong> Donne son accord et est disposé à collaborer</p>
+            <input type="radio" name="q2" value="A"> A
+            <input type="radio" name="q2" value="B"> B
+        </div>
+
+        <!-- Ajoutez autant de paires de questions que nécessaire -->
+        <button type="button" onclick="calculateScore()">Calculer le Score</button>
+    </form>
+
+    <div id="result">
+        <h3>Résultat</h3>
+        <p id="scoreOutput">Score non calculé</p>
+    </div>
+
+    <script>
+        // Script de calcul du score
+        function calculateScore() {
+            let scoreA = 0;
+            let scoreB = 0;
+
+            // Récupérer toutes les questions du formulaire
+            const formElements = document.getElementById("learyForm").elements;
+
