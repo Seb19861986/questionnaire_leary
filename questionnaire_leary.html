@@ -8,7 +8,7 @@
 <body>
     <h2>Questionnaire de Leary</h2>
     <form id="learyForm">
-        <!-- Exemples de questions extraites -->
+        <!-- Exemples de questions -->
         <div>
             <p>1. <strong>A)</strong> Exerce pouvoir et influence <br>
             <strong>B)</strong> Compréhensif et de bon conseil</p>
@@ -33,11 +33,23 @@
     </div>
 
     <script>
-        // Script de calcul du score
+        // Script JavaScript de calcul du score
         function calculateScore() {
             let scoreA = 0;
             let scoreB = 0;
 
-            // Récupérer toutes les questions du formulaire
             const formElements = document.getElementById("learyForm").elements;
+            for (let element of formElements) {
+                if (element.type === "radio" && element.checked) {
+                    console.log(`Name: ${element.name}, Value: ${element.value}`);
+                    if (element.value === "A") {
+                        scoreA += 1;
+                    } else if (element.value === "B") {
+                        scoreB += 1;
+                    }
+                }
+            }
 
+            console.log(`Total A: ${scoreA} | Total B: ${scoreB}`);
+            document.getElementById("scoreOutput").innerText = 
+                `
